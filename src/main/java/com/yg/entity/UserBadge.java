@@ -30,7 +30,4 @@ class UserBadge extends YArchivableAuditableEntity<UUID> {
     @ManyToOne
     @JoinColumn(name = "badgerequestId", nullable = false)
     private BadgeRequest badgeRequest;
-
-    @Column(name = "status", nullable = true)
-    private String status;
 }

@@ -15,6 +15,4 @@ class UserBadgeDto extends YArchivableAuditableDto<UUID> {
     private UserDto owner;
 
     private BadgeRequestDto badgeRequest;
-
-    private String status;
 }

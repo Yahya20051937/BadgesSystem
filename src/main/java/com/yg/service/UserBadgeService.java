@@ -30,7 +30,7 @@ public class UserBadgeService implements YCrudService<UserBadge, UUID, UserBadge
     @YProjection("select")
     Projection<UserBadgeDto> getSelectProjection() {
         QUserBadge userbadge = new QUserBadge("userbadge");
-        return Projection.<UserBadgeDto>builder().expression(Projections.fields(UserBadgeDto.class, userbadge.id, userbadge.createdDate, userbadge.status, userbadge.collectedAt, userbadge.createdDate, userbadge.expiryDate)).applyJoins(q -> q).build();
+        return Projection.<UserBadgeDto>builder().expression(Projections.fields(UserBadgeDto.class, userbadge.id, userbadge.createdDate, userbadge.collectedAt, userbadge.createdDate, userbadge.expiryDate)).applyJoins(q -> q).build();
     }
 
     @Override
@@ -41,6 +41,6 @@ public class UserBadgeService implements YCrudService<UserBadge, UUID, UserBadge
         QBadgeRequest badgeRequest = new QBadgeRequest("badgeRequest");
         QBadgeTemplate model = new QBadgeTemplate("model");
         QAirport aeroport = new QAirport("aeroport");
-        return Projection.<UserBadgeDto>builder().expression(Projections.fields(UserBadgeDto.class, userbadge.id, userbadge.createdDate, userbadge.status, userbadge.collectedAt, userbadge.createdDate, userbadge.expiryDate, userbadge.collectionPoint, Projections.fields(UserDto.class, owner.id, owner.nom, owner.lastName, owner.email, Projections.fields(DepartmentDto.class, department.name).as("department")).as("owner"), Projections.fields(BadgeRequestDto.class, Projections.fields(BadgeTemplateDto.class, model.id, model.name, model.color, model.code, Projections.fields(AirportDto.class, aeroport.name).as("aeroport")).as("model")).as("badgeRequest"))).applyJoins(q -> q.leftJoin(userbadge.owner, owner).leftJoin(owner.department, department).leftJoin(userbadge.badgeRequest, badgeRequest).leftJoin(badgeRequest.model, model).leftJoin(model.aeroport, aeroport)).build();
+        return Projection.<UserBadgeDto>builder().expression(Projections.fields(UserBadgeDto.class, userbadge.id, userbadge.createdDate, userbadge.collectedAt, userbadge.createdDate, userbadge.expiryDate, userbadge.collectionPoint, Projections.fields(UserDto.class, owner.id, owner.nom, owner.lastName, owner.email, Projections.fields(DepartmentDto.class, department.name).as("department")).as("owner"), Projections.fields(BadgeRequestDto.class, Projections.fields(BadgeTemplateDto.class, model.id, model.name, model.color, model.code, Projections.fields(AirportDto.class, aeroport.name).as("aeroport")).as("model")).as("badgeRequest"))).applyJoins(q -> q.leftJoin(userbadge.owner, owner).leftJoin(owner.department, department).leftJoin(userbadge.badgeRequest, badgeRequest).leftJoin(badgeRequest.model, model).leftJoin(model.aeroport, aeroport)).build();
     }
 }

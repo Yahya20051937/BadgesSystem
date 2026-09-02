@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/userbadge")
 public class UserBadgeController implements @YHasRole("ADMIN") CreateController<UserBadge, UUID, UserBadgeDto, UserBadgeBodyDto>, SearchController<UserBadge, UUID, UserBadgeDto> {
-  @Getter
-  private final UserBadgeService service;
+
+    @Getter
+    private final UserBadgeService service;
 }
