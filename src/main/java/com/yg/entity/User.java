@@ -19,13 +19,13 @@ class User extends YArchivableAuditableEntity<UUID> {
     @Column(name = "email", nullable = false)
     private String email;
 
-    @ManyToOne
-    @JoinColumn(name = "departmentId", nullable = false)
-    private Department department;
-
     @Column(name = "nom", nullable = false)
     private String nom;
 
     @Column(name = "expiryDate", nullable = false)
     private LocalTime expiryDate;
+
+    @ManyToOne
+    @JoinColumn(name = "departmentId", nullable = false)
+    private Department department;
 }

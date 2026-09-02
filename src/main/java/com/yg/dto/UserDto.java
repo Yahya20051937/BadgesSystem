@@ -10,8 +10,6 @@ class UserDto extends YArchivableAuditableDto<UUID> {
 
     private String email;
 
-    private DepartmentDto department;
-
     private String nom;
 
     private LocalTime expiryDate;
