@@ -232,4 +232,11 @@
         <renameColumn newColumnName="nom" oldColumnName="prenom" tableName="user"/>
     </changeSet>
     <changeSet author="yahya" id="build name later" objectQuotingStrategy="LEGACY"/>
+    <changeSet author="yahya" id="add-expiryDate-1788359684162" objectQuotingStrategy="LEGACY">
+        <addColumn tableName="user">
+            <column name="expiryDate" type="TIMESTAMP">
+                <constraints/>
+            </column>
+        </addColumn>
+    </changeSet>
 </databaseChangeLog>

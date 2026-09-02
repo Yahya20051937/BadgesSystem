@@ -6,6 +6,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.util.UUID;
+import java.time.LocalDateTime;
 
 @YAppEntityDto
 @Table(name = "user")
@@ -23,4 +24,7 @@ class User extends YArchivableAuditableEntity<UUID> {
 
     @Column(name = "nom", nullable = false)
     private String nom;
+
+    @Column(name = "expiryDate", nullable = false)
+    private LocalDateTime expiryDate;
 }
