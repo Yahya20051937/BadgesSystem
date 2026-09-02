@@ -10,5 +10,5 @@ class UserDto extends YArchivableAuditableDto<UUID> {
 
     private DepartmentDto department;
 
-    private String prenom;
+    private String nom;
 }

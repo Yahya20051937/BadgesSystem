@@ -18,13 +18,13 @@ interface UserMapper extends YMapper<User, UserDto, UserBodyDto> {
     @Mapping(target = "lastName", ignore = true)
     @Mapping(target = "email", ignore = true)
     @Mapping(target = "department", ignore = true)
-    @Mapping(target = "prenom", ignore = true)
+    @Mapping(target = "nom", ignore = true)
     void fillIgnoreNull(@MappingTarget User entity, UserBodyDto body);
 
     @Override
     @Mapping(target = "lastName", ignore = true)
     @Mapping(target = "email", ignore = true)
     @Mapping(target = "department", ignore = true)
-    @Mapping(target = "prenom", ignore = true)
+    @Mapping(target = "nom", ignore = true)
     void fill(@MappingTarget User entity, UserBodyDto body);
 }

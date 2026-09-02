@@ -21,6 +21,6 @@ class User extends YArchivableAuditableEntity<UUID> {
     @JoinColumn(name = "departmentId", nullable = false)
     private Department department;
 
-    @Column(name = "prenom", nullable = false)
-    private String prenom;
+    @Column(name = "nom", nullable = false)
+    private String nom;
 }

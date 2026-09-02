@@ -228,4 +228,8 @@
         <renameColumn newColumnName="prenom" oldColumnName="firstName" tableName="user"/>
     </changeSet>
     <changeSet author="yahya" id="build name later" objectQuotingStrategy="LEGACY"/>
+    <changeSet author="yahya" id="rename-column-user-prenom-to-nom-1788359571258" objectQuotingStrategy="LEGACY">
+        <renameColumn newColumnName="nom" oldColumnName="prenom" tableName="user"/>
+    </changeSet>
+    <changeSet author="yahya" id="build name later" objectQuotingStrategy="LEGACY"/>
 </databaseChangeLog>
