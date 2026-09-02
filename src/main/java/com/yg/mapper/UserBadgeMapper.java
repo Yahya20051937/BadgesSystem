@@ -21,7 +21,6 @@ interface UserBadgeMapper extends YMapper<UserBadge, UserBadgeDto, UserBadgeBody
     @Mapping(target = "collectionPoint", ignore = true)
     @Mapping(target = "owner", ignore = true)
     @Mapping(target = "badgeRequest", ignore = true)
-    @Mapping(target = "status", ignore = true)
     void fillIgnoreNull(@MappingTarget UserBadge entity, UserBadgeBodyDto body);
 
     @Override
@@ -30,6 +29,5 @@ interface UserBadgeMapper extends YMapper<UserBadge, UserBadgeDto, UserBadgeBody
     @Mapping(target = "collectionPoint", ignore = true)
     @Mapping(target = "badgeRequest", ignore = true)
     @Mapping(target = "owner", source = "ownerId")
-    @Mapping(target = "status", ignore = true)
     void fill(@MappingTarget UserBadge entity, UserBadgeBodyDto body);
 }

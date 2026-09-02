@@ -23,6 +23,5 @@ class UserBadgeBodyDto {
     @NotNull
     private UUID badgeRequestId;
 
-    @NotEmpty
     private String status;
 }

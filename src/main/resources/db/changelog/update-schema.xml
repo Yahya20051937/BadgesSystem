@@ -244,4 +244,7 @@
     </changeSet>
     <changeSet author="yahya" id="build name later" objectQuotingStrategy="LEGACY"/>
     <changeSet author="yahya" id="build name later" objectQuotingStrategy="LEGACY"/>
+    <changeSet author="yahya" id="build name later" objectQuotingStrategy="LEGACY">
+        <dropNotNullConstraint columnName="status" tableName="userbadge"/>
+    </changeSet>
 </databaseChangeLog>
