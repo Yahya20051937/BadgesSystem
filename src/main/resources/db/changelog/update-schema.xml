@@ -1,7 +1,7 @@
 <?xml version="1.1" encoding="UTF-8" standalone="no"?>
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
     <changeSet author="yahya" id="1788359181932-92284358" objectQuotingStrategy="LEGACY">
-        <createTable tableName="airport">
+        <createTable rowDependencies="false" tableName="airport">
             <column name="name" type="VARCHAR(255)">
                 <constraints/>
             </column>
@@ -32,7 +32,7 @@
         </createTable>
     </changeSet>
     <changeSet author="yahya" id="1788359181935-cd24b9a8" objectQuotingStrategy="LEGACY">
-        <createTable tableName="department">
+        <createTable rowDependencies="false" tableName="department">
             <column name="name" type="VARCHAR(255)">
                 <constraints/>
             </column>
@@ -63,7 +63,7 @@
         </createTable>
     </changeSet>
     <changeSet author="yahya" id="1788359181936-94f2806b" objectQuotingStrategy="LEGACY">
-        <createTable tableName="badgetemplate">
+        <createTable rowDependencies="false" tableName="badgetemplate">
             <column name="name" type="VARCHAR(255)">
                 <constraints/>
             </column>
@@ -104,7 +104,7 @@
         <addForeignKeyConstraint baseColumnNames="aeroportId" baseTableName="badgetemplate" constraintName="fk_badgetemplate_aeroportId" referencedColumnNames="id" referencedTableName="airport"/>
     </changeSet>
     <changeSet author="yahya" id="1788359181936-83d9bfae" objectQuotingStrategy="LEGACY">
-        <createTable tableName="badgerequest">
+        <createTable rowDependencies="false" tableName="badgerequest">
             <column name="model" type="UUID">
                 <constraints/>
             </column>
@@ -136,7 +136,7 @@
         <addForeignKeyConstraint baseColumnNames="modelId" baseTableName="badgerequest" constraintName="fk_badgerequest_modelId" referencedColumnNames="id" referencedTableName="badgetemplate"/>
     </changeSet>
     <changeSet author="yahya" id="1788359181936-9c39f653" objectQuotingStrategy="LEGACY">
-        <createTable tableName="user">
+        <createTable rowDependencies="false" tableName="user">
             <column name="firstName" type="VARCHAR(255)">
                 <constraints/>
             </column>
@@ -177,7 +177,7 @@
         <addForeignKeyConstraint baseColumnNames="departmentId" baseTableName="user" constraintName="fk_user_departmentId" referencedColumnNames="id" referencedTableName="department"/>
     </changeSet>
     <changeSet author="yahya" id="1788359181936-e09eaffc" objectQuotingStrategy="LEGACY">
-        <createTable tableName="userbadge">
+        <createTable rowDependencies="false" tableName="userbadge">
             <column name="status" type="VARCHAR(50)">
                 <constraints/>
             </column>
@@ -224,4 +224,8 @@
         <addForeignKeyConstraint baseColumnNames="ownerId" baseTableName="userbadge" constraintName="fk_userbadge_ownerId" referencedColumnNames="id" referencedTableName="user"/>
         <addForeignKeyConstraint baseColumnNames="badgeRequestId" baseTableName="userbadge" constraintName="fk_userbadge_badgeRequestId" referencedColumnNames="id" referencedTableName="badgerequest"/>
     </changeSet>
+    <changeSet author="yahya" id="rename-column-user-firstName-to-prenom-1788359341850" objectQuotingStrategy="LEGACY">
+        <renameColumn newColumnName="prenom" oldColumnName="firstName" tableName="user"/>
+    </changeSet>
+    <changeSet author="yahya" id="build name later" objectQuotingStrategy="LEGACY"/>
 </databaseChangeLog>
