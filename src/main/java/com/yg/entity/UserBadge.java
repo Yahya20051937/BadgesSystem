@@ -11,46 +11,26 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @YAppEntityDto
-@Table(
-    name = "userbadge"
-)
+@Table(name = "userbadge")
 class UserBadge extends YArchivableAuditableEntity<UUID> {
-  @Column(
-      name = "status",
-      nullable = false
-  )
-  @Enumerated(STRING)
-  private BadgeStatus status;
 
-  @Column(
-      name = "collectedAt",
-      nullable = false
-  )
-  private LocalDateTime collectedAt;
+    @Column(name = "collectedAt", nullable = false)
+    private LocalDateTime collectedAt;
 
-  @Column(
-      name = "expiryDate",
-      nullable = false
-  )
-  private LocalDateTime expiryDate;
+    @Column(name = "expiryDate", nullable = false)
+    private LocalDateTime expiryDate;
 
-  @Column(
-      name = "collectionPoint",
-      nullable = false
-  )
-  private String collectionPoint;
+    @Column(name = "collectionPoint", nullable = false)
+    private String collectionPoint;
 
-  @ManyToOne
-  @JoinColumn(
-      name = "userId",
-      nullable = false
-  )
-  private User owner;
+    @ManyToOne
+    @JoinColumn(name = "userId", nullable = false)
+    private User owner;
 
-  @ManyToOne
-  @JoinColumn(
-      name = "badgerequestId",
-      nullable = false
-  )
-  private BadgeRequest badgeRequest;
+    @ManyToOne
+    @JoinColumn(name = "badgerequestId", nullable = false)
+    private BadgeRequest badgeRequest;
+
+    @Column(name = "status", nullable = false)
+    private String status;
 }

@@ -5,15 +5,16 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 class UserBadgeDto extends YArchivableAuditableDto<UUID> {
-  private BadgeStatus status;
 
-  private LocalDateTime collectedAt;
+    private LocalDateTime collectedAt;
 
-  private LocalDateTime expiryDate;
+    private LocalDateTime expiryDate;
 
-  private String collectionPoint;
+    private String collectionPoint;
 
-  private UserDto owner;
+    private UserDto owner;
 
-  private BadgeRequestDto badgeRequest;
+    private BadgeRequestDto badgeRequest;
+
+    private String status;
 }
