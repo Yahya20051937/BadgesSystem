@@ -239,4 +239,7 @@
             </column>
         </addColumn>
     </changeSet>
+    <changeSet author="yahya" id="build name later" objectQuotingStrategy="LEGACY">
+        <modifyDataType columnName="expiryDate" newDataType="TIME" tableName="user"/>
+    </changeSet>
 </databaseChangeLog>

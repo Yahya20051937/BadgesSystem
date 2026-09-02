@@ -2,6 +2,7 @@ package com.yg.dto;
 
 import java.util.UUID;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 class UserDto extends YArchivableAuditableDto<UUID> {
 
@@ -13,5 +14,5 @@ class UserDto extends YArchivableAuditableDto<UUID> {
 
     private String nom;
 
-    private LocalDateTime expiryDate;
+    private LocalTime expiryDate;
 }
