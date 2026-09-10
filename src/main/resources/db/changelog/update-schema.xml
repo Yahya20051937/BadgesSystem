@@ -257,4 +257,42 @@
             </column>
         </addColumn>
     </changeSet>
+    <changeSet author="yahya" id="1789049919986-7357a818" objectQuotingStrategy="LEGACY">
+        <createTable tableName="airportzone">
+            <column name="name" type="VARCHAR(255)">
+                <constraints/>
+            </column>
+            <column name="code" type="VARCHAR(255)">
+                <constraints/>
+            </column>
+            <column name="airport" type="UUID">
+                <constraints/>
+            </column>
+            <column name="id" type="UUID">
+                <constraints primaryKey="true" unique="true"/>
+            </column>
+            <column name="createdDate" type="TIMESTAMP">
+                <constraints/>
+            </column>
+            <column name="createdBy" type="VARCHAR(255)">
+                <constraints/>
+            </column>
+            <column name="lastModifiedDate" type="TIMESTAMP">
+                <constraints/>
+            </column>
+            <column name="lastModifiedBy" type="VARCHAR(255)">
+                <constraints/>
+            </column>
+            <column name="archived" type="BOOLEAN">
+                <constraints/>
+            </column>
+            <column name="archivedDate" type="TIMESTAMP">
+                <constraints nullable="true"/>
+            </column>
+            <column name="archivedBy" type="VARCHAR(255)">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint baseColumnNames="airportId" baseTableName="airportzone" constraintName="fk_airportzone_airportId" referencedColumnNames="id" referencedTableName="airport"/>
+    </changeSet>
 </databaseChangeLog>
