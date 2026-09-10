@@ -7,22 +7,18 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 
-@Mapper(
-    config = com.yg.configuration.MapstructConfig.class,
-    uses = {}
-)
+@Mapper(config = com.yg.configuration.MapstructConfig.class, uses = {})
 interface AirportMapper extends YMapper<Airport, AirportDto, AirportBodyDto> {
-  @Override
-  @Mapping(
-      target = "name",
-      ignore = true
-  )
-  void fillIgnoreNull(@MappingTarget Airport entity, AirportBodyDto body);
 
-  @Override
-  @Mapping(
-      target = "name",
-      ignore = true
-  )
-  void fill(@MappingTarget Airport entity, AirportBodyDto body);
+    @Override
+    @Mapping(target = "name", ignore = true)
+    void fillIgnoreNull(@MappingTarget Airport entity, AirportBodyDto body);
+
+    @Override
+    @Mapping(target = "name", ignore = true)
+    @Mapping(target = "Code", ignore = true)
+    void fill(@MappingTarget Airport entity, AirportBodyDto body);
+
+    @Mapping(target = "Code", ignore = true)
+    Airport from(AirportBodyDto b);
 }

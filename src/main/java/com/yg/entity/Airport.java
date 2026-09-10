@@ -6,13 +6,12 @@ import jakarta.persistence.Table;
 import java.util.UUID;
 
 @YAppEntityDto
-@Table(
-    name = "airport"
-)
+@Table(name = "airport")
 class Airport extends YArchivableAuditableEntity<UUID> {
-  @Column(
-      name = "name",
-      nullable = false
-  )
-  private String name;
+
+    @Column(name = "name", nullable = false)
+    private String name;
+
+    @Column(name = "Code", nullable = false)
+    private UUID Code;
 }

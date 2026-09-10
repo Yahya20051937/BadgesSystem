@@ -250,4 +250,11 @@
     <changeSet author="yahya" id="delete-status-1788360589063" objectQuotingStrategy="LEGACY">
         <dropColumn columnName="status" tableName="userbadge"/>
     </changeSet>
+    <changeSet author="yahya" id="add-Code-1789049153842" objectQuotingStrategy="LEGACY">
+        <addColumn tableName="airport">
+            <column name="Code" type="UUID">
+                <constraints/>
+            </column>
+        </addColumn>
+    </changeSet>
 </databaseChangeLog>
