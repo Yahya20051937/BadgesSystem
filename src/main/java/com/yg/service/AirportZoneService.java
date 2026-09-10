@@ -12,10 +12,18 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class AirportZoneService implements YCrudService<AirportZone, UUID, AirportZoneDto, AirportZoneBodyDto> {
-  @Getter
-  private final AirportZoneRepository repository;
+public class AirportZoneService implements YCrudService<AirportZone, UUID, AirportZoneDto, AirportZoneBodyDto>, YSearchService<AirportZone, UUID, AirportZoneDto> {
 
-  @Getter
-  private final AirportZoneMapper mapper;
+    @Getter
+    private final AirportZoneRepository repository;
+
+    @Getter
+    private final AirportZoneMapper mapper;
+
+    @Override
+    Projection<AirportZoneDto> getDefaultProjection() {
+        QAirportZone airportzone = new QAirportZone("airportzone");
+        QAirport airport = new QAirport("airport");
+        return Projection.<AirportZoneDto>builder().expression(Projections.fields(AirportZoneDto.class, airportzone.code, airportzone.name, Projections.fields(AirportDto.class, airport.name, airport.Code).as("airport"))).applyJoins(q -> q.leftJoin(airportzone.airport, airport)).build();
+    }
 }
